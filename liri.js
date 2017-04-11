@@ -33,37 +33,43 @@ var client = new Twitter({
 var params = {screen_name: 'jenesis5829'};
 client.get('statuses/user_timeline', params, function(error, tweets, response) {
   if (!error) {
-    console.log(tweets);
+    //console.log(tweets);
+    for(var i=0; i<tweets.length; i++){
+      console.log(tweets[i].created_at);
+      console.log(' ');
+      console.log(tweets[i].text);
+    }
   }
-  if (error){
-  	console.log(error);
+ });
+}
+//still working on this 
+
+if (command == "spotify-this-song"){
+	spotify.search({ type: 'track', query: 'I Want it That Way' }, function(err, data) {
+    if ( err ) {
+        console.log('Error occurred: ' + err);
+        return;
+    } else {
+
+ // Do something with 'data' 
+    console.log(data.tracks.items[0]);
+    
   }
- 
-});
+
+  });
 }
 
-// if (command == "spotify-this-song"){
-// 	spotify.search({ type: 'track', query: 'dancing in the moonlight' }, function(err, data) {
-//     if ( err ) {
-//         console.log('Error occurred: ' + err);
-//         return;
-//     }
- 
-//     // Do something with 'data' 
-// output = ('\nSong Info \n\nArtist: ' + artistConcat + '\n\nSong Title: ' + thisSong.name + '\n\nOriginal Album: ' + thisSong.album.name + '\n\nPreview: ' + thisSong.preview_url + '\n');
-// 				console.log(output);
-// 				append();
-			
-// 			} else {
+//still working on random
+   
+// if (command == "do-what-it-says"){
 
-// 			{
-// 				console.log('spotify error or there is no song matching that title.');
-// 			}
-// 		};
 
-// }); 
 
 // }
+
+
+
+
 
 
 
